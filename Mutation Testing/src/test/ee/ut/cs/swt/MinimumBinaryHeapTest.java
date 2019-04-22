@@ -42,7 +42,10 @@ public class MinimumBinaryHeapTest {
 		heap.add(1);
 		heap.add(6);
 		int min = heap.exractMin();
+		List<Integer> result = Arrays.asList(6, 7);
 		assertEquals(1, min);
+		assertEquals(heap.getArray(), result);
+
 	}
 
 
@@ -88,6 +91,12 @@ public class MinimumBinaryHeapTest {
 	public void isEmptyTest() {
 		heap = new MinimumBinaryHeap();
 		assertEquals(true, heap.isEmpty());
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void extractMinWithEmpty() {
+		heap = new MinimumBinaryHeap();
+		heap.exractMin();
 	}
 }
 
