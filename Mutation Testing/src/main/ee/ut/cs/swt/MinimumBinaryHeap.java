@@ -97,8 +97,7 @@ public class MinimumBinaryHeap {
 	 */
 	public boolean remove(int element) {
 		int index = heap.indexOf(element);
-		if (index == heap.size() - 1) {
-			heap.remove(heap.size() - 1);
+		if (index == -1) {
 			return false;
 		}
 
