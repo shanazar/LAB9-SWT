@@ -60,33 +60,23 @@ public class MinimumBinaryHeapTest {
 
     @Test
     public void removeTest() {
-        heap.add(7);
-        heap.add(9);
-        heap.add(5);
-        heap.add(3);
-        heap.add(2);
-        List<Integer> result = Arrays.asList(3, 5, 9);
-        System.out.println(heap.getArray());
-        boolean b1 = heap.remove(2);
-        boolean b2 = heap.remove(7);
-        boolean b3 = heap.remove(8);
-        assertTrue(b1);
-        assertTrue(b2);
-        assertFalse(b3);
-        assertEquals(result, heap.getArray());
-    }
+        heap.minHeapify(Arrays.asList(1,2,3,4));
 
-    @Test
-    public void isEmptyTest() {
-        heap.add(1);
+        boolean b = heap.remove(3);
+        assertTrue(b);
+        assertEquals(Arrays.asList(1,2,4), heap.getArray());
 
-        boolean b1 = heap.remove(1);
-        assertTrue(b1);
-        assertTrue(heap.isEmpty());
+        b = heap.remove(2);
+        assertTrue(b);
+        assertEquals(Arrays.asList(1,4), heap.getArray());
 
-        b1 = heap.remove(1);
-        assertFalse(b1);
-        assertTrue(heap.isEmpty());
+        b = heap.remove(4);
+        assertTrue(b);
+        assertEquals(Collections.singletonList(1), heap.getArray());
+
+        b = heap.remove(1);
+        assertTrue(b);
+        assertEquals(Collections.emptyList(), heap.getArray());
     }
 
     @Test
